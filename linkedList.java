@@ -20,72 +20,63 @@ class list1 {
             head = head.next;
             System.out.println(head.data);
         }
-
     }
 
-    public list1 search(list1 head, int data) {
-        list1 h1 = head;
-        while (h1 != null) {
-            if (h1.data == data) {
-                System.out.print("data found");
-                return h1;
-            }
-            h1 = h1.next;
-        }
-        System.out.print("not found");
-        return head;
-    }
-
-    public void delete(list1 head, int data) {
+    public void delete(list1 head, int data, boolean delete) {
+        list1 temp = head;
+        //with delete boolean it is common function for 
         while (head != null) {
-            if (head.next.data == data) {
-                System.out.print("data found");
-                head.next = head.next.next;
+            if (head.data == data) {
+                System.out.println("match found");
+                if (delete) {
+                    temp.next = temp.next.next;
+                }
                 return;
             }
+            temp = head;
             head = head.next;
         }
-
+        System.out.println("match not found");
     }
 
     public static void main(String s[]) {
         Scanner inp = new Scanner(System.in);
-        int v;
+        int v, data;
         list1 start = new list1();
 
-        System.out.println("\n1 insert :");
-        System.out.println("\n2 delete :");
-        System.out.println("\n3 search :");
-        System.out.println("\n4 print  :");
-        System.out.println("\n5 exit   :");
-
         do {
+            System.out.println("\n1 insert :");
+            System.out.println("\n2 delete :");
+            System.out.println("\n3 search :");
+            System.out.println("\n4 print  :");
+            System.out.println("\n5 exit   :");
             v = inp.nextInt();
-            int data = 0;
             switch (v) {
-            case 1:
+            case 1: {
                 data = inp.nextInt();
                 start.insert(start, data);
                 System.out.println("value inserted" + data);
-
+            }
                 break;
-            case 2:
+            case 2: {
                 data = inp.nextInt();
-                start.delete(start, data);
-                System.out.println("value deleted" + data);
+                start.delete(start, data, true);
+            }
                 break;
-            case 3:
+            case 3: {
                 data = inp.nextInt();
-                list1 node = start.search(start, data);
+                start.delete(start, data, false);
+            }
                 break;
-            case 4:
+            case 4: {
                 start.print(start);
+
+            }
                 break;
             default:
-                System.exit(0);
                 break;
             }
-        } while (true);
+        } while (v != 5);
 
     }
 }
