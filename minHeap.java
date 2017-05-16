@@ -58,7 +58,7 @@ minHeap(){
     public int peek() {
         if (size == 0)
             throw new IllegalStateException("");
-        return items[0];
+        return items[size-1];
     }
 
     public int poll() {
@@ -74,29 +74,36 @@ minHeap(){
     public void add(int item) {
        // if (ensureCapacity()) {
             items[size] = item;
+        
             size++;
             heapifyUp();
-            
         //}
 
     }
 
     public void heapifyDown() {
         int index = 0;
-        System.out.print("heapifyDown");
         while (hasLeftChild(index)) {
             int smallerChildIndex = getLeftChildIndex(index);
             if (hasRightChild(index) && rightChild(index) < leftChild(index)) {
                 smallerChildIndex = getRightChildIndex(index);
             }
+            if(items[index]<items[smallerChildIndex]){
+                break;
+            }else{
+                swap(index,smallerChildIndex);
+            }
+
 
         }
 
     }
 
     public void print() {
-        for (int i = 0; i < size; i++) {
-            System.out.print(items[i]+" ");
+        //print it in sorting with removing elements
+        int total=size;
+        for (int i = 0; i < total; i++) {
+            System.out.print(poll()+" ");
         }
         System.out.println();
     }
@@ -119,6 +126,5 @@ minHeap(){
         mn.add(1);
         mn.add(22);
         mn.print();
-
     }
 }
