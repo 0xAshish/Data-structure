@@ -56,20 +56,20 @@ minHeap(){
     }
 
     public int peek() {
-        if (size == 0)
+        if (size == 0)  
             throw new IllegalStateException("");
         return items[size-1];
     }
 
-    public int poll() {
-        if (size == 0)
-            throw new IllegalStateException("");
-        int item = items[0];
-        items[0]=items[size-1];
-        size--;
-        heapifyDown();
-        return item;
-    }
+        public int poll() {
+            if (size == 0)
+                throw new IllegalStateException("");
+            int item = items[0];
+            items[0]=items[size-1];
+            size--;
+            heapifyDown();
+            return item;
+        }
 
     public void add(int item) {
        // if (ensureCapacity()) {

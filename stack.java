@@ -37,7 +37,7 @@ public class stack<T> {
     }
     public static void main(String arg[]){
         stack<Integer> stk=new stack(10);
-        stk.pop();
+        //stk.pop();
         stk.push(10);
         stk.push(15);
         stk.push(16);
