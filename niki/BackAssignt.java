@@ -22,7 +22,7 @@ class Ba
     }
 //fast but not accurate/gaournteed for some corner case works very well in competitve programming so.. why not!!
 public static long fastMethod(long n)
-{
+{//not very good after some point i am looking for other method for nth fib 
   double f=Math.sqrt(5);
         double phi=(f+1)/2;
     return (long) Math.round((Math.pow(phi,n))/f)%M;
@@ -38,8 +38,8 @@ public static long fastMethod(long n)
             //just fibonacci numbers
             // for actual numbers or seq we need to permute and check that if meets condition then add it to set
             long n = in.nextLong();
-            //System.out.println(getBinSeqL(n));
-            System.out.println(fastMethod(n+2));
+            System.out.println(getBinSeqL(n));
+            //System.out.println(fastMethod(n+2));
         }
     }
 }
